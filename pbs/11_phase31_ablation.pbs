@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#PBS -N jepa-p31-ablate
+#PBS -q gpu_bwp6000
+#PBS -l select=1:ncpus=4:ngpus=1:mem=72gb
+#PBS -l walltime=04:00:00
+#PBS -j oe
+set -euo pipefail
+module load anaconda2025/2025-gpu
+: "${JEPA_CONDA_SH:?Set JEPA_CONDA_SH}"
+: "${JEPA_CONDA_ENV:?Set JEPA_CONDA_ENV}"
+: "${JEPA_MODEL_PATH:?Set JEPA_MODEL_PATH}"
+: "${JEPA_ARTIFACT_ROOT:?Set JEPA_ARTIFACT_ROOT}"
+source "$JEPA_CONDA_SH"
+conda activate "$JEPA_CONDA_ENV"
+JEPA_REPO_DIR="${JEPA_REPO_DIR:-${PBS_O_WORKDIR:-$PWD}}"
+cd "$JEPA_REPO_DIR"
+export PYTHONPATH="$PWD/src:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+export HF_HOME="${JEPA_HF_HOME:-$JEPA_ARTIFACT_ROOT/huggingface}"
+export HF_HUB_CACHE="$HF_HOME/hub"
+export HF_HUB_OFFLINE=1
+export HF_DATASETS_OFFLINE=1
+export TOKENIZERS_PARALLELISM=false
+BASE="$JEPA_ARTIFACT_ROOT"
+mkdir -p "$BASE/logs"
+python -m jepa_pu.phase31_audit --config configs/phase3.yaml \
+  2>&1 | tee "$BASE/logs/phase31-audit.log"
+python -m jepa_pu.phase31_evaluate --config configs/phase3.yaml --budget 32 --examples 250 \
+  2>&1 | tee "$BASE/logs/phase31-evaluate.log"

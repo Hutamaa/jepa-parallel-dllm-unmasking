@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#PBS -N jepa-p3-train
+#PBS -q gpu_bwp6000
+#PBS -l select=1:ncpus=4:ngpus=1:mem=72gb
+#PBS -l walltime=12:00:00
+#PBS -j oe
+set -euo pipefail
+module load anaconda2025/2025-gpu
+: "${JEPA_CONDA_SH:?Set JEPA_CONDA_SH}"
+: "${JEPA_CONDA_ENV:?Set JEPA_CONDA_ENV}"
+: "${JEPA_MODEL_PATH:?Set JEPA_MODEL_PATH}"
+: "${JEPA_ARTIFACT_ROOT:?Set JEPA_ARTIFACT_ROOT}"
+source "$JEPA_CONDA_SH"
+conda activate "$JEPA_CONDA_ENV"
+JEPA_REPO_DIR="${JEPA_REPO_DIR:-${PBS_O_WORKDIR:-$PWD}}"
+cd "$JEPA_REPO_DIR"
+export PYTHONPATH="$PWD/src:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+BASE="$JEPA_ARTIFACT_ROOT"
+mkdir -p "$BASE/logs"
+python -m jepa_pu.train --config configs/phase3.yaml \
+  2>&1 | tee "$BASE/logs/phase3-train.log"
+python -m jepa_pu.phase3_rank_train --config configs/phase3.yaml \
+  2>&1 | tee "$BASE/logs/phase3-rank-finetune.log"
+python -m jepa_pu.phase3_outcome_audit --config configs/phase3.yaml \
+  2>&1 | tee "$BASE/logs/phase3-outcome-audit.log"

@@ -1,0 +1,76 @@
+seed: 17
+paths:
+  model: ${JEPA_MODEL_PATH:-models/LLaDA-8B-Instruct}
+  data_dir: ${JEPA_ARTIFACT_ROOT:-artifacts}/data
+  trajectory_dir: ${JEPA_ARTIFACT_ROOT:-artifacts}/trajectories_phase3
+  checkpoint_dir: ${JEPA_ARTIFACT_ROOT:-artifacts}/checkpoints_phase3
+  output_dir: ${JEPA_ARTIFACT_ROOT:-artifacts}/results_phase3
+dataset:
+  name: openai/gsm8k
+  config: main
+  train_examples: 800
+  validation_examples: 100
+  test_examples: 250
+model:
+  mask_id: 126336
+  dtype: bfloat16
+  device: cuda
+  hidden_layer: -1
+  local_files_only: true
+  trust_remote_code: true
+generation:
+  gen_length: 128
+  block_length: 128
+  steps: 32
+  temperature: 0.0
+  group_sizes:
+  - 4
+  - 8
+  - 16
+  confidence_weight: 0.0
+  logits_eos_inf: false
+  confidence_eos_eot_inf: false
+  eos_id: 126081
+  eot_id: 126348
+  adaptive_confidence_threshold: 0.9
+  candidate_policy: nonprefix_v3
+  max_candidates: 6
+trajectories:
+  examples_per_shard: 8
+  projection_dim: 256
+  projection_seed: 314159
+  risk_objective: rollout_answer_correctness_plus_compute_v3
+  train_examples: 256
+  validation_examples: 64
+  sample_step_indices:
+  - 0
+  - 12
+  - 24
+  latency_weight: 0.1
+training:
+  batch_size: 128
+  epochs: 24
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  hidden_dim: 1024
+  dropout: 0.1
+  variance_weight: 0.05
+  num_workers: 2
+  patience: 5
+  ranking_epochs: 8
+  ranking_learning_rate: 0.0001
+  ranking_temperature: 0.2
+  ranking_min_gap: 0.005
+  ranking_patience: 3
+evaluation:
+  methods:
+  - vanilla
+  - adaptive_confidence
+  - jepa
+  - direct
+  step_budgets:
+  - 16
+  - 24
+  - 32
+  warmup_examples: 2
+  checkpoint_name: phase1.pt

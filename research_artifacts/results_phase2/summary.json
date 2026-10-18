@@ -1,0 +1,98 @@
+[
+  {
+    "method": "adaptive_confidence",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 15.936,
+    "avg_llada_forward_passes": 15.936,
+    "avg_latency_seconds": 0.40650071705505253,
+    "avg_llada_seconds": 0.39087600746378304,
+    "avg_policy_overhead_seconds": 0.0036504392493516206,
+    "peak_gpu_memory_bytes": 16519992320
+  },
+  {
+    "method": "adaptive_confidence",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.528,
+    "avg_steps": 29.52,
+    "avg_llada_forward_passes": 29.52,
+    "avg_latency_seconds": 0.7552821034230291,
+    "avg_llada_seconds": 0.7248936729785055,
+    "avg_policy_overhead_seconds": 0.008059619072824717,
+    "peak_gpu_memory_bytes": 16521042432
+  },
+  {
+    "method": "direct",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 16.0,
+    "avg_llada_forward_passes": 16.0,
+    "avg_latency_seconds": 0.42638330221734944,
+    "avg_llada_seconds": 0.3922356893327087,
+    "avg_policy_overhead_seconds": 0.022029811518266797,
+    "peak_gpu_memory_bytes": 16523623424
+  },
+  {
+    "method": "direct",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.52,
+    "avg_steps": 31.764,
+    "avg_llada_forward_passes": 31.764,
+    "avg_latency_seconds": 0.8612826045248657,
+    "avg_llada_seconds": 0.7785738207101822,
+    "avg_policy_overhead_seconds": 0.058650644460693,
+    "peak_gpu_memory_bytes": 16523633664
+  },
+  {
+    "method": "jepa",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 15.98,
+    "avg_llada_forward_passes": 15.98,
+    "avg_latency_seconds": 0.4274770833943039,
+    "avg_llada_seconds": 0.39173981587588785,
+    "avg_policy_overhead_seconds": 0.02361723375506699,
+    "peak_gpu_memory_bytes": 16523629568
+  },
+  {
+    "method": "jepa",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.52,
+    "avg_steps": 31.796,
+    "avg_llada_forward_passes": 31.796,
+    "avg_latency_seconds": 0.8660885492935777,
+    "avg_llada_seconds": 0.779739487156272,
+    "avg_policy_overhead_seconds": 0.06222871685400605,
+    "peak_gpu_memory_bytes": 16523642880
+  },
+  {
+    "method": "vanilla",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 16.0,
+    "avg_llada_forward_passes": 16.0,
+    "avg_latency_seconds": 0.40652437895163895,
+    "avg_llada_seconds": 0.3923405092712492,
+    "avg_policy_overhead_seconds": 0.0,
+    "peak_gpu_memory_bytes": 16519989760
+  },
+  {
+    "method": "vanilla",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.52,
+    "avg_steps": 32.0,
+    "avg_llada_forward_passes": 32.0,
+    "avg_latency_seconds": 0.8130407510828227,
+    "avg_llada_seconds": 0.784629524692893,
+    "avg_policy_overhead_seconds": 0.0,
+    "peak_gpu_memory_bytes": 16521038336
+  }
+]

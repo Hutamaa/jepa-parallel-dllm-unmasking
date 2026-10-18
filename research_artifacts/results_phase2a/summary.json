@@ -1,0 +1,98 @@
+[
+  {
+    "method": "adaptive_confidence",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 15.936,
+    "avg_llada_forward_passes": 15.936,
+    "avg_latency_seconds": 0.407263607179746,
+    "avg_llada_seconds": 0.3916798499096185,
+    "avg_policy_overhead_seconds": 0.00361600343324244,
+    "peak_gpu_memory_bytes": 16519992320
+  },
+  {
+    "method": "adaptive_confidence",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.528,
+    "avg_steps": 29.52,
+    "avg_llada_forward_passes": 29.52,
+    "avg_latency_seconds": 0.7568893431425094,
+    "avg_llada_seconds": 0.7265984158013016,
+    "avg_policy_overhead_seconds": 0.007974226759746671,
+    "peak_gpu_memory_bytes": 16521042432
+  },
+  {
+    "method": "direct",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 14.308,
+    "avg_llada_forward_passes": 14.308,
+    "avg_latency_seconds": 0.3829825688824058,
+    "avg_llada_seconds": 0.3509245518781245,
+    "avg_policy_overhead_seconds": 0.021208325238898398,
+    "peak_gpu_memory_bytes": 16523633152
+  },
+  {
+    "method": "direct",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.508,
+    "avg_steps": 25.556,
+    "avg_llada_forward_passes": 25.556,
+    "avg_latency_seconds": 0.693639884069562,
+    "avg_llada_seconds": 0.6261104831919074,
+    "avg_policy_overhead_seconds": 0.048239807395264504,
+    "peak_gpu_memory_bytes": 16523643392
+  },
+  {
+    "method": "jepa",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 14.748,
+    "avg_llada_forward_passes": 14.748,
+    "avg_latency_seconds": 0.39611937586963175,
+    "avg_llada_seconds": 0.36219702649116514,
+    "avg_policy_overhead_seconds": 0.022704533345997334,
+    "peak_gpu_memory_bytes": 16523642368
+  },
+  {
+    "method": "jepa",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.508,
+    "avg_steps": 26.704,
+    "avg_llada_forward_passes": 26.704,
+    "avg_latency_seconds": 0.7290981667097658,
+    "avg_llada_seconds": 0.6563034071885049,
+    "avg_policy_overhead_seconds": 0.05252565893158317,
+    "peak_gpu_memory_bytes": 16523642880
+  },
+  {
+    "method": "vanilla",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 16.0,
+    "avg_llada_forward_passes": 16.0,
+    "avg_latency_seconds": 0.4072620634585619,
+    "avg_llada_seconds": 0.39311248087882994,
+    "avg_policy_overhead_seconds": 0.0,
+    "peak_gpu_memory_bytes": 16519989760
+  },
+  {
+    "method": "vanilla",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.52,
+    "avg_steps": 32.0,
+    "avg_llada_forward_passes": 32.0,
+    "avg_latency_seconds": 0.8146813683137297,
+    "avg_llada_seconds": 0.7863266764972359,
+    "avg_policy_overhead_seconds": 0.0,
+    "peak_gpu_memory_bytes": 16521038336
+  }
+]

@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -N jepa-train
+#PBS -q gpu_bwp6000
+#PBS -l select=1:ncpus=4:ngpus=1:mem=72gb
+#PBS -l walltime=12:00:00
+#PBS -j oe
+
+set -euo pipefail
+module load anaconda2025/2025-gpu
+: "${JEPA_CONDA_SH:?Submit with JEPA_CONDA_SH pointing to conda.sh}"
+: "${JEPA_CONDA_ENV:?Submit with JEPA_CONDA_ENV naming the existing environment}"
+: "${JEPA_MODEL_PATH:?Set JEPA_MODEL_PATH to the local LLaDA snapshot}"
+: "${JEPA_ARTIFACT_ROOT:?Set JEPA_ARTIFACT_ROOT to writable experiment storage}"
+source "$JEPA_CONDA_SH"
+conda activate "$JEPA_CONDA_ENV"
+JEPA_REPO_DIR="${JEPA_REPO_DIR:-${PBS_O_WORKDIR:-$PWD}}"
+cd "$JEPA_REPO_DIR"
+export PYTHONUNBUFFERED=1
+export PYTHONPATH="$JEPA_REPO_DIR/src:${PYTHONPATH:-}"
+export HF_HOME="${JEPA_HF_HOME:-$JEPA_ARTIFACT_ROOT/huggingface}"
+export HF_HUB_CACHE="$HF_HOME/hub"
+mkdir -p "$JEPA_ARTIFACT_ROOT/logs"
+
+python -m jepa_pu.train --config configs/phase1.yaml 2>&1 | tee "$JEPA_ARTIFACT_ROOT/logs/phase1-train.log"

@@ -1,0 +1,197 @@
+{
+  "phase": "3.1",
+  "goal": "isolate action space and ranking fine-tuning",
+  "dataset": "same 250 GSM8K test examples as Phase 3",
+  "step_budget": 32,
+  "no_retraining": true,
+  "same_full_candidate_list_before_filtering": true,
+  "ranked_checkpoint": "${JEPA_ARTIFACT_ROOT}/checkpoints_phase3/phase1.pt",
+  "pre_rank_checkpoint": "${JEPA_ARTIFACT_ROOT}/checkpoints_phase3/phase1-before-ranking.pt",
+  "summary": [
+    {
+      "method": "adaptive_confidence",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.524,
+      "avg_steps": 27.44,
+      "avg_nonprefix_selections": 0.0,
+      "avg_candidates_scored": 0.0,
+      "avg_llada_forward_passes": 27.44,
+      "avg_latency_seconds": 0.7025494229756296,
+      "avg_llada_seconds": 0.6746316117364913,
+      "avg_policy_overhead_seconds": 0.007165015239268541,
+      "peak_gpu_memory_bytes": 16544168448
+    },
+    {
+      "method": "direct_post_all",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.44,
+      "avg_steps": 24.516,
+      "avg_nonprefix_selections": 11.14,
+      "avg_candidates_scored": 137.944,
+      "avg_llada_forward_passes": 24.516,
+      "avg_latency_seconds": 0.6984669015500694,
+      "avg_llada_seconds": 0.6012180304620415,
+      "avg_policy_overhead_seconds": 0.07540005172602832,
+      "peak_gpu_memory_bytes": 16547843584
+    },
+    {
+      "method": "direct_post_prefix",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.452,
+      "avg_steps": 23.156,
+      "avg_nonprefix_selections": 0.0,
+      "avg_candidates_scored": 69.176,
+      "avg_llada_forward_passes": 23.156,
+      "avg_latency_seconds": 0.6402446523327381,
+      "avg_llada_seconds": 0.5682920288741589,
+      "avg_policy_overhead_seconds": 0.05135367273911834,
+      "peak_gpu_memory_bytes": 16547811840
+    },
+    {
+      "method": "direct_pre_all",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.424,
+      "avg_steps": 22.948,
+      "avg_nonprefix_selections": 10.244,
+      "avg_candidates_scored": 129.576,
+      "avg_llada_forward_passes": 22.948,
+      "avg_latency_seconds": 0.655179546136409,
+      "avg_llada_seconds": 0.563849988847971,
+      "avg_policy_overhead_seconds": 0.07082181645929814,
+      "peak_gpu_memory_bytes": 16547843584
+    },
+    {
+      "method": "direct_pre_prefix",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.424,
+      "avg_steps": 22.096,
+      "avg_nonprefix_selections": 0.0,
+      "avg_candidates_scored": 66.26,
+      "avg_llada_forward_passes": 22.096,
+      "avg_latency_seconds": 0.6110803263932466,
+      "avg_llada_seconds": 0.5423055726215243,
+      "avg_policy_overhead_seconds": 0.049091345500200986,
+      "peak_gpu_memory_bytes": 16547820032
+    },
+    {
+      "method": "jepa_post_all",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.472,
+      "avg_steps": 24.588,
+      "avg_nonprefix_selections": 11.652,
+      "avg_candidates_scored": 138.74,
+      "avg_llada_forward_passes": 24.588,
+      "avg_latency_seconds": 0.7047672157082707,
+      "avg_llada_seconds": 0.6042469166312366,
+      "avg_policy_overhead_seconds": 0.07848929590173066,
+      "peak_gpu_memory_bytes": 16547862016
+    },
+    {
+      "method": "jepa_post_prefix",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.452,
+      "avg_steps": 23.348,
+      "avg_nonprefix_selections": 0.0,
+      "avg_candidates_scored": 69.656,
+      "avg_llada_forward_passes": 23.348,
+      "avg_latency_seconds": 0.6483921705149114,
+      "avg_llada_seconds": 0.5733947588093579,
+      "avg_policy_overhead_seconds": 0.05418466055952013,
+      "peak_gpu_memory_bytes": 16547821056
+    },
+    {
+      "method": "jepa_pre_all",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.444,
+      "avg_steps": 23.688,
+      "avg_nonprefix_selections": 10.592,
+      "avg_candidates_scored": 134.312,
+      "avg_llada_forward_passes": 23.688,
+      "avg_latency_seconds": 0.6781568801794201,
+      "avg_llada_seconds": 0.5810740206129849,
+      "avg_policy_overhead_seconds": 0.07590338297002018,
+      "peak_gpu_memory_bytes": 16547862016
+    },
+    {
+      "method": "jepa_pre_prefix",
+      "step_budget": 32,
+      "examples": 250,
+      "accuracy": 0.48,
+      "avg_steps": 22.692,
+      "avg_nonprefix_selections": 0.0,
+      "avg_candidates_scored": 67.828,
+      "avg_llada_forward_passes": 22.692,
+      "avg_latency_seconds": 0.6296488795150071,
+      "avg_llada_seconds": 0.5567254370003939,
+      "avg_policy_overhead_seconds": 0.052712185382843016,
+      "peak_gpu_memory_bytes": 16547821056
+    }
+  ],
+  "paired_comparisons_vs_adaptive": [
+    {
+      "method": "jepa_pre_prefix",
+      "baseline": "adaptive_confidence",
+      "rescued_questions": 14,
+      "lost_questions": 25,
+      "net_rescued": -11
+    },
+    {
+      "method": "direct_pre_prefix",
+      "baseline": "adaptive_confidence",
+      "rescued_questions": 10,
+      "lost_questions": 35,
+      "net_rescued": -25
+    },
+    {
+      "method": "jepa_pre_all",
+      "baseline": "adaptive_confidence",
+      "rescued_questions": 10,
+      "lost_questions": 30,
+      "net_rescued": -20
+    },
+    {
+      "method": "direct_pre_all",
+      "baseline": "adaptive_confidence",
+      "rescued_questions": 11,
+      "lost_questions": 36,
+      "net_rescued": -25
+    },
+    {
+      "method": "jepa_post_prefix",
+      "baseline": "adaptive_confidence",
+      "rescued_questions": 7,
+      "lost_questions": 25,
+      "net_rescued": -18
+    },
+    {
+      "method": "direct_post_prefix",
+      "baseline": "adaptive_confidence",
+      "rescued_questions": 10,
+      "lost_questions": 28,
+      "net_rescued": -18
+    },
+    {
+      "method": "jepa_post_all",
+      "baseline": "adaptive_confidence",
+      "rescued_questions": 23,
+      "lost_questions": 36,
+      "net_rescued": -13
+    },
+    {
+      "method": "direct_post_all",
+      "baseline": "adaptive_confidence",
+      "rescued_questions": 14,
+      "lost_questions": 35,
+      "net_rescued": -21
+    }
+  ],
+  "caveat": "Budget is a maximum, not a fixed number of forward passes; inspect realized compute and latency."
+}

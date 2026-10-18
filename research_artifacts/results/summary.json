@@ -1,0 +1,74 @@
+[
+  {
+    "method": "direct",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 14.308,
+    "avg_llada_forward_passes": 14.308,
+    "avg_latency_seconds": 0.383291333347559,
+    "avg_llada_seconds": 0.35065147011354564,
+    "avg_policy_overhead_seconds": 0.021730886148288844,
+    "peak_gpu_memory_bytes": 16523633152
+  },
+  {
+    "method": "direct",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.508,
+    "avg_steps": 25.556,
+    "avg_llada_forward_passes": 25.556,
+    "avg_latency_seconds": 0.6944962834436447,
+    "avg_llada_seconds": 0.6255951729584486,
+    "avg_policy_overhead_seconds": 0.04950284014828503,
+    "peak_gpu_memory_bytes": 16523643392
+  },
+  {
+    "method": "jepa",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 14.748,
+    "avg_llada_forward_passes": 14.748,
+    "avg_latency_seconds": 0.39653433648124337,
+    "avg_llada_seconds": 0.3619902454502881,
+    "avg_policy_overhead_seconds": 0.0232620852496475,
+    "peak_gpu_memory_bytes": 16523642368
+  },
+  {
+    "method": "jepa",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.508,
+    "avg_steps": 26.704,
+    "avg_llada_forward_passes": 26.704,
+    "avg_latency_seconds": 0.7301518642511219,
+    "avg_llada_seconds": 0.6558958619851619,
+    "avg_policy_overhead_seconds": 0.05387518792040646,
+    "peak_gpu_memory_bytes": 16523642880
+  },
+  {
+    "method": "vanilla",
+    "step_budget": 16,
+    "examples": 250,
+    "accuracy": 0.392,
+    "avg_steps": 16.0,
+    "avg_llada_forward_passes": 16.0,
+    "avg_latency_seconds": 0.4077704975903034,
+    "avg_llada_seconds": 0.39347582099959255,
+    "avg_policy_overhead_seconds": 0.0,
+    "peak_gpu_memory_bytes": 16519989760
+  },
+  {
+    "method": "vanilla",
+    "step_budget": 32,
+    "examples": 250,
+    "accuracy": 0.52,
+    "avg_steps": 32.0,
+    "avg_llada_forward_passes": 32.0,
+    "avg_latency_seconds": 0.8143273990415036,
+    "avg_llada_seconds": 0.7856990488674491,
+    "avg_policy_overhead_seconds": 0.0,
+    "peak_gpu_memory_bytes": 16521038336
+  }
+]

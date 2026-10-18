@@ -1,0 +1,42 @@
+{
+  "source": "held-out GSM8K train-derived validation trajectory states",
+  "important": "Labels evaluate one deterministic vanilla continuation per action; they do NOT guarantee final online policy accuracy.",
+  "states": 192,
+  "states_with_different_correctness_across_actions": 38,
+  "jepa": {
+    "states": 192,
+    "top1_rollout_cost_accuracy": 0.9270833333333334,
+    "mean_rollout_cost_regret": 0.07291666666666667,
+    "selected_action_rollout_correct_rate": 0.5260416666666666,
+    "selected_nonprefix_rate": 0.5104166666666666,
+    "pairwise_outcome_concordance": 0.6641509433962264,
+    "non_tied_pairs": 265
+  },
+  "direct": {
+    "states": 192,
+    "top1_rollout_cost_accuracy": 0.9270833333333334,
+    "mean_rollout_cost_regret": 0.07291666666666667,
+    "selected_action_rollout_correct_rate": 0.5260416666666666,
+    "selected_nonprefix_rate": 0.484375,
+    "pairwise_outcome_concordance": 0.5886792452830188,
+    "non_tied_pairs": 265
+  },
+  "adaptive_confidence_on_same_action_set": {
+    "states": 192,
+    "top1_rollout_cost_accuracy": 0.9322916666666666,
+    "mean_rollout_cost_regret": 0.06770833333333333,
+    "selected_action_rollout_correct_rate": 0.53125,
+    "selected_nonprefix_rate": 0.0,
+    "pairwise_outcome_concordance": null,
+    "non_tied_pairs": 0
+  },
+  "largest_group_on_same_action_set": {
+    "states": 192,
+    "top1_rollout_cost_accuracy": 0.8541666666666666,
+    "mean_rollout_cost_regret": 0.14583333333333334,
+    "selected_action_rollout_correct_rate": 0.453125,
+    "selected_nonprefix_rate": 0.0,
+    "pairwise_outcome_concordance": null,
+    "non_tied_pairs": 0
+  }
+}

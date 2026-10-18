@@ -1,0 +1,86 @@
+{
+  "phase": "4_final_selective_intervention",
+  "status": "selected_for_test",
+  "heldout_calibration": "gsm8k_validation rows 64:100 (36 questions), unused in Phase 3 labels",
+  "notes": [
+    "JEPA checkpoint is pre-ranking; actions are strictly confidence-prefix candidates.",
+    "Gate is based on JEPA predicted rollout cost improvement over adaptive confidence.",
+    "Selected margin uses validation only. The 250-question test set has been inspected in earlier experiments; treat follow-up comparisons as exploratory.",
+    "Gate scoring always requires hidden states and adds compute overhead; compare actual latency and passes."
+  ],
+  "margins": [
+    0.0,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "validation_baseline": {
+    "correct_count": 18,
+    "total": 36,
+    "accuracy": 0.5,
+    "latency_seconds": 0.6717789265611727,
+    "llada_passes": 27.055555555555557,
+    "interventions_per_example": 0.0,
+    "intervention_opportunities_per_example": 0.0
+  },
+  "validation_hybrids": [
+    {
+      "margin": 0.0,
+      "correct_count": 21,
+      "total": 36,
+      "accuracy": 0.5833333333333334,
+      "latency_seconds": 0.45767330925446004,
+      "llada_passes": 17.36111111111111,
+      "interventions_per_example": 7.722222222222222,
+      "intervention_opportunities_per_example": 16.86111111111111
+    },
+    {
+      "margin": 0.02,
+      "correct_count": 20,
+      "total": 36,
+      "accuracy": 0.5555555555555556,
+      "latency_seconds": 0.49063333095465267,
+      "llada_passes": 18.63888888888889,
+      "interventions_per_example": 6.805555555555555,
+      "intervention_opportunities_per_example": 17.916666666666668
+    },
+    {
+      "margin": 0.05,
+      "correct_count": 20,
+      "total": 36,
+      "accuracy": 0.5555555555555556,
+      "latency_seconds": 0.5138580805052899,
+      "llada_passes": 19.5,
+      "interventions_per_example": 5.222222222222222,
+      "intervention_opportunities_per_example": 18.77777777777778
+    },
+    {
+      "margin": 0.1,
+      "correct_count": 19,
+      "total": 36,
+      "accuracy": 0.5277777777777778,
+      "latency_seconds": 0.6155787562537525,
+      "llada_passes": 23.333333333333332,
+      "interventions_per_example": 2.4444444444444446,
+      "intervention_opportunities_per_example": 22.52777777777778
+    }
+  ],
+  "selected_margin": 0.0,
+  "test": {
+    "hybrid": {
+      "correct_count": 121,
+      "total": 250,
+      "accuracy": 0.484,
+      "latency_seconds": 0.44308915146812794,
+      "llada_passes": 16.248,
+      "interventions_per_example": 8.028,
+      "intervention_opportunities_per_example": 15.748
+    },
+    "baseline_saved_phase31_accuracy": 0.524,
+    "baseline_saved_phase31_avg_latency_seconds": 0.7025494229756296,
+    "baseline_saved_phase31_avg_llada_passes": 27.44,
+    "rescued": 15,
+    "lost": 25,
+    "net": -10
+  }
+}

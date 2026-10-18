@@ -1,0 +1,32 @@
+{
+  "split": "validation",
+  "risk_target_description": "retained-proposal probability loss plus argmax flip rate on remaining masks",
+  "important": "Ranking and correlation assess only the stored proxy risk, NOT downstream correctness.",
+  "samples": 1400,
+  "states": 400,
+  "future_cosine_identity_current_repr": 0.9131779089144298,
+  "future_cosine_trained_jepa": 0.9262090703419277,
+  "global_proxy_pearson_jepa": 0.8944057822227478,
+  "global_proxy_pearson_direct": 0.8631362915039062,
+  "ranking_jepa": {
+    "states_with_multiple_candidates": 400,
+    "proxy_top1_accuracy": 0.765,
+    "mean_proxy_regret": 0.013677967488765716,
+    "within_state_pairwise_concordance": 0.8131578947368421,
+    "compared_pairs": 1900
+  },
+  "ranking_direct": {
+    "states_with_multiple_candidates": 400,
+    "proxy_top1_accuracy": 0.6975,
+    "mean_proxy_regret": 0.022403880544006823,
+    "within_state_pairwise_concordance": 0.781578947368421,
+    "compared_pairs": 1900
+  },
+  "ranking_adaptive_confidence": {
+    "states_with_multiple_candidates": 400,
+    "proxy_top1_accuracy": 0.46,
+    "mean_proxy_regret": 0.076824272852391,
+    "within_state_pairwise_concordance": null,
+    "compared_pairs": 0
+  }
+}

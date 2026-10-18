@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" role="img" aria-labelledby="title desc">
+  <title id="title">Phase 3 and Phase 4 accuracy versus average LLaDA passes</title>
+  <desc id="desc">Scatter plot of five recorded operating points. Adaptive confidence has 52.4 percent accuracy at 27.44 passes; vanilla has 52 percent at 32 passes; Phase 3 JEPA has 47.2 percent at 24.588 passes; direct MLP has 44 percent at 24.516 passes; and the Phase 4 hybrid has 48.4 percent at 16.248 passes. These points are not compute matched.</desc>
+  <rect width="720" height="440" fill="#ffffff"/>
+  <text x="360" y="24" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold">GSM8K accuracy vs. realized LLaDA passes</text>
+  <text x="360" y="43" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#555">250-example test subset; Phase 3 (32-step maximum) and Phase 4</text>
+
+  <g stroke="#dddddd" stroke-width="1">
+    <line x1="80" y1="350" x2="670" y2="350"/>
+    <line x1="80" y1="261.4" x2="670" y2="261.4"/>
+    <line x1="80" y1="172.9" x2="670" y2="172.9"/>
+    <line x1="80" y1="84.3" x2="670" y2="84.3"/>
+    <line x1="139" y1="62" x2="139" y2="350"/>
+    <line x1="257" y1="62" x2="257" y2="350"/>
+    <line x1="375" y1="62" x2="375" y2="350"/>
+    <line x1="493" y1="62" x2="493" y2="350"/>
+    <line x1="611" y1="62" x2="611" y2="350"/>
+  </g>
+
+  <g stroke="#333333" stroke-width="1.5">
+    <line x1="80" y1="62" x2="80" y2="350"/>
+    <line x1="80" y1="350" x2="670" y2="350"/>
+  </g>
+
+  <g font-family="sans-serif" font-size="11" fill="#333333">
+    <text x="69" y="354" text-anchor="end">40%</text>
+    <text x="69" y="265.4" text-anchor="end">44%</text>
+    <text x="69" y="176.9" text-anchor="end">48%</text>
+    <text x="69" y="88.3" text-anchor="end">52%</text>
+    <text x="139" y="368" text-anchor="middle">16</text>
+    <text x="257" y="368" text-anchor="middle">20</text>
+    <text x="375" y="368" text-anchor="middle">24</text>
+    <text x="493" y="368" text-anchor="middle">28</text>
+    <text x="611" y="368" text-anchor="middle">32</text>
+    <text x="375" y="392" text-anchor="middle" font-size="13">Average LLaDA forward passes</text>
+    <text x="18" y="206" text-anchor="middle" font-size="13" transform="rotate(-90 18 206)">Exact-match accuracy</text>
+  </g>
+
+  <g font-family="sans-serif" font-size="11">
+    <circle cx="476.5" cy="75.4" r="6" fill="#1769aa"/>
+    <text x="486" y="70" fill="#1769aa">Adaptive confidence 52.4%</text>
+    <circle cx="611" cy="84.3" r="6" fill="#555555"/>
+    <text x="601" y="105" text-anchor="end" fill="#555555">Vanilla 52.0%</text>
+    <circle cx="392.3" cy="190.6" r="6" fill="#8e44ad"/>
+    <text x="402" y="187" fill="#8e44ad">Phase 3 JEPA 47.2%</text>
+    <circle cx="390.2" cy="261.4" r="6" fill="#d35400"/>
+    <text x="400" y="265" fill="#d35400">Direct MLP 44.0%</text>
+    <circle cx="146.3" cy="164" r="7" fill="#16865b"/>
+    <text x="158" y="159" fill="#16865b">Phase 4 hybrid 48.4%</text>
+  </g>
+
+  <rect x="80" y="406" width="590" height="24" rx="4" fill="#fff3cd" stroke="#e0b84f"/>
+  <text x="375" y="422" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#664d03">Operating points are not compute-matched; do not interpret connected dominance or causality.</text>
+</svg>

@@ -1,0 +1,78 @@
+# Python/build/test caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*~
+*.swp
+*.tmp
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*
+secrets*
+.aws/
+
+# Model weights and learned checkpoints
+models/
+checkpoints*/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.onnx
+
+# Hugging Face and model caches
+.cache/
+huggingface/
+hf_cache/
+hf_datasets/
+hub/
+
+# Generated datasets, trajectories, and prediction-level outputs
+artifacts/
+data/
+datasets/
+trajectories*/
+/results*/
+predictions-*.jsonl
+*.arrow
+*.parquet
+
+# Cluster/runtime logs
+logs/
+*.log
+*.out
+*.err
+*.o[0-9]*
+core.*
+
+# Archives and bulk exports
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# Historical local handoff/backup files (superseded by docs/)
+/PHASE*_README.md
+*.bak
+src/jepa_pu/decode.py.before_phase31
